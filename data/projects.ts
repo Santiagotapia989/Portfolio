@@ -113,8 +113,7 @@ export const featuredProjects: Project[] = [
     },
     tech: ["n8n", "Pinecone", "Groq", "Hugging Face", "Google Drive API"],
     repoUrl: "https://github.com/Santiagotapia989/DocuMind-AI",
-    demoUrl:
-      "https://santiago140304.app.n8n.cloud/webhook/0f4429b7-3b4d-46fc-8916-7975315461b4/chat",
+    demoUrl: "https://documind-stb.netlify.app/",
   },
 ];
 
