@@ -108,12 +108,12 @@ export const featuredProjects: Project[] = [
       en: "AI automation",
     },
     description: {
-      es: "Sistema RAG (Retrieval-Augmented Generation) automatizado con dos flujos en n8n: ingesta de PDFs desde Google Drive, embeddings con Hugging Face indexados en Pinecone, y un agente conversacional con Groq que responde en tiempo real.",
-      en: "Automated RAG (Retrieval-Augmented Generation) system with two n8n workflows: PDF ingestion from Google Drive, Hugging Face embeddings indexed in Pinecone, and a conversational agent powered by Groq answering in real time.",
+      es: "Chatbot conversacional con arquitectura RAG que responde sobre mi perfil, experiencia y proyectos. Buscador de relevancia propio sobre una base de conocimiento curada, función serverless en Netlify y generación con LLM (Groq o fallback gratuito).",
+      en: "Conversational chatbot with a RAG architecture that answers questions about my profile, experience and projects. Custom relevance-based retriever over a curated knowledge base, Netlify serverless function and LLM generation (Groq or a free fallback).",
     },
-    tech: ["n8n", "Pinecone", "Groq", "Hugging Face", "Google Drive API"],
+    tech: ["JavaScript", "RAG", "Netlify Functions", "Groq"],
     repoUrl: "https://github.com/Santiagotapia989/DocuMind-AI",
-    demoUrl: "https://documind-stb.netlify.app/",
+    demoUrl: "https://docmindaia.netlify.app/",
   },
 ];
 
