@@ -2,9 +2,9 @@ import type { Dictionary } from "./es";
 
 export const en: Dictionary = {
   meta: {
-    title: "Santiago Tapia Bazán — Backend & Full-Stack Developer",
+    title: "Santiago Tapia Bazán — Full Stack Developer",
     description:
-      "Portfolio of Santiago Tapia Bazán: Computer Engineering student, backend & full-stack developer. Projects, experience and contact.",
+      "Portfolio of Santiago Tapia Bazán: Computer Engineering student, full stack development and process automation. Projects, experience and contact.",
     ogLocale: "en_US",
   },
   a11y: {
@@ -28,7 +28,7 @@ export const en: Dictionary = {
   },
   hero: {
     greeting: "Hi, I'm",
-    role: "Computer Engineering Student | Backend & Full-Stack Developer",
+    role: "Computer Engineering Student | Full Stack Development & Automation",
     tagline:
       "I build software that solves real problems: robust backends, automations and end-to-end web products.",
     ctaProjects: "View Projects",
@@ -41,7 +41,7 @@ export const en: Dictionary = {
   about: {
     heading: "About me",
     description:
-      "Third-year Computer Engineering student focused on Backend Development and Process Automation. Hands-on experience building web applications with C#/.NET, designing and integrating REST APIs, n8n workflows, and infrastructure/deployment management (DevOps/Render). Passionate about solving real-world problems through code and software optimization.",
+      "Third-year Computer Engineering student focused on Full Stack Development and Process Automation, with a special interest in cybersecurity. Hands-on experience in web applications with C#/.NET, Next.js and React, REST API design and integration, and n8n workflows. 1st place at the CYBER.AR 2026 National Cyber Defense Hackathon. Passionate about solving real-world problems through code and software optimization.",
     educationHeading: "Education",
     languagesHeading: "Languages",
     education: [

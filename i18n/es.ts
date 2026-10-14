@@ -1,8 +1,8 @@
 export const es = {
   meta: {
-    title: "Santiago Tapia Bazán — Desarrollador Backend & Full-Stack",
+    title: "Santiago Tapia Bazán — Desarrollador Full Stack",
     description:
-      "Portfolio de Santiago Tapia Bazán: estudiante de Ingeniería Informática, desarrollador backend y full-stack. Proyectos, experiencia y contacto.",
+      "Portfolio de Santiago Tapia Bazán: estudiante de Ingeniería Informática, desarrollador full stack y automatización de procesos. Proyectos, experiencia y contacto.",
     ogLocale: "es_AR",
   },
   a11y: {
@@ -26,7 +26,7 @@ export const es = {
   },
   hero: {
     greeting: "Hola, soy",
-    role: "Estudiante de Ingeniería Informática | Desarrollador Backend & Full-Stack",
+    role: "Estudiante de Ingeniería Informática | Desarrollo Full Stack y Automatización",
     tagline:
       "Construyo software que resuelve problemas reales: backends robustos, automatizaciones y productos web de punta a punta.",
     ctaProjects: "Ver Proyectos",
@@ -39,7 +39,7 @@ export const es = {
   about: {
     heading: "Sobre mí",
     description:
-      "Estudiante de 3.º año de Ingeniería Informática enfocado en Desarrollo Backend y Automatización de Procesos. Experiencia práctica en desarrollo de aplicaciones web con C#/.NET, diseño e integración de APIs REST, flujos con n8n y gestión de infraestructura/despliegue (DevOps/Render). Apasionado por resolver problemas reales mediante código y optimización de software.",
+      "Estudiante de 3.º año de Ingeniería Informática enfocado en Desarrollo Full Stack y Automatización de Procesos, con especial interés en ciberseguridad. Experiencia práctica en aplicaciones web con C#/.NET, Next.js y React, diseño e integración de APIs REST y flujos con n8n. 1.º puesto en el Hackathon Nacional de Ciberdefensa CYBER.AR 2026. Apasionado por resolver problemas reales mediante código y optimización de software.",
     educationHeading: "Educación",
     languagesHeading: "Idiomas",
     education: [
@@ -72,7 +72,7 @@ export const es = {
         bullets: [
           "Desarrollo Backend avanzado con C# y .NET Framework",
           "Diseño, documentación y consumo de APIs REST con Swagger / OpenAPI",
-          "Automatización de flujos e integración de sistemas con n8n",
+          "Automatización de flujos de trabajo e integración de sistemas con n8n",
           "Desarrollo Frontend y maquetación web con HTML, CSS y JavaScript",
         ],
       },

@@ -22,12 +22,12 @@ export const featuredProjects: Project[] = [
     id: "siar",
     title: "SIAR — Sistema de Inspección de Archivos y Repositorios",
     badge: {
-      es: "🥇 1.º Puesto · Hackathon CYBER.AR 2026",
-      en: "🥇 1st Place · CYBER.AR 2026 Hackathon",
+      es: "🥇 1.º Puesto · Hackathon Nacional de Ciberdefensa CYBER.AR 2026",
+      en: "🥇 1st Place · CYBER.AR 2026 National Cyber Defense Hackathon",
     },
     description: {
-      es: "Herramienta de seguridad basada en IA que actúa como \"aduana\" para agentes de IA que programan: analiza paquetes y repositorios en cuarentena antes de que el agente los use, detectando prompt injection, typosquatting y secretos filtrados. Veredicto vinculante con aprobación humana por token e informe ejecutivo imprimible.",
-      en: "AI-based security tool that acts as a \"customs checkpoint\" for coding AI agents: it analyzes packages and repositories in quarantine before the agent can use them, detecting prompt injection, typosquatting and leaked secrets. Binding verdict with human token approval and a printable executive report.",
+      es: "Herramienta de seguridad basada en IA que analiza en un entorno aislado repositorios y paquetes de terceros antes de que los consuman agentes de IA (Cursor, Claude Code, Copilot, MCP). Analizadores deterministas (Unicode oculto, prompt injection, typosquatting, secretos con gitleaks) combinados con triage semántico mediante un modelo local (Ollama). Arquitectura full-stack: TypeScript, Node/Express, React 18, Vite y Tailwind, con aprobación humana por token.",
+      en: "AI-based security tool that analyzes third-party repositories and packages in an isolated environment before they are consumed by AI agents (Cursor, Claude Code, Copilot, MCP). Deterministic analyzers (hidden Unicode, prompt injection, typosquatting, secrets via gitleaks) combined with semantic triage powered by a local model (Ollama). Full-stack architecture: TypeScript, Node/Express, React 18, Vite and Tailwind, with human token-based approval.",
     },
     tech: [
       "TypeScript",
@@ -43,19 +43,6 @@ export const featuredProjects: Project[] = [
     repoUrl: "https://github.com/Santiagotapia989/Hackathon",
   },
   {
-    id: "hackathon-uca",
-    title: "Hackathon UCA 2023",
-    badge: {
-      es: "🥇 1.º Puesto · Hackathon UCA 2023",
-      en: "🥇 1st Place · UCA 2023 Hackathon",
-    },
-    description: {
-      es: "Ideación y diseño de una solución integral enfocada en sostenibilidad, desarrollada en equipo durante la hackathon organizada por la UCA.",
-      en: "Ideation and design of an integral solution focused on sustainability, built with a team during the hackathon organized by UCA.",
-    },
-    tech: ["Ideación", "Diseño de solución", "Trabajo en equipo"],
-  },
-  {
     id: "centro-medico",
     title: "Centro Médico Digital",
     badge: {
@@ -63,8 +50,8 @@ export const featuredProjects: Project[] = [
       en: "Web platform",
     },
     description: {
-      es: "Plataforma integral para la gestión de turnos médicos: reserva online en 4 pasos, autenticación de pacientes, cartilla médica por especialidad y sede, mails de confirmación y exportación de turnos a Excel.",
-      en: "Full platform for medical appointment management: 4-step online booking, patient authentication, provider directory by specialty and location, confirmation emails and Excel export of appointments.",
+      es: "Plataforma de gestión de turnos: reserva de turnos médicos online con autenticación, PostgreSQL (Prisma) y mails de confirmación. Next.js 14, React y TypeScript; desplegado en Vercel.",
+      en: "Appointment management platform: online medical appointment booking with authentication, PostgreSQL (Prisma) and confirmation emails. Next.js 14, React and TypeScript; deployed on Vercel.",
     },
     tech: [
       "Next.js 14",
@@ -86,8 +73,8 @@ export const featuredProjects: Project[] = [
       en: "Corporate site + e-commerce",
     },
     description: {
-      es: "Sitio web corporativo con catálogo dinámico por categorías, carrito de compras persistente, checkout con Mercado Pago, formulario de contacto vía email y botones de WhatsApp por producto.",
-      en: "Corporate website with a dynamic category-based catalog, persistent shopping cart, Mercado Pago checkout, email contact form and per-product WhatsApp buttons.",
+      es: "Sitio web y catálogo e-commerce: catálogo dinámico y carrito de compras con checkout en Mercado Pago. Next.js 14, TypeScript y Tailwind CSS.",
+      en: "Website & e-commerce catalog: dynamic catalog and shopping cart with Mercado Pago checkout. Next.js 14, TypeScript and Tailwind CSS.",
     },
     tech: [
       "Next.js",
@@ -99,6 +86,19 @@ export const featuredProjects: Project[] = [
     ],
     repoUrl: "https://github.com/Santiagotapia989/centerprints-catalog",
     demoUrl: "https://centerprints-catalog.vercel.app/",
+  },
+  {
+    id: "hackathon-uca",
+    title: "Hackathon UCA — Competencia de Desarrollo Sostenible",
+    badge: {
+      es: "🥇 1.º Puesto · Hackathon UCA 2023",
+      en: "🥇 1st Place · UCA 2023 Hackathon",
+    },
+    description: {
+      es: "1.º Puesto. Diseño de una solución integral de sostenibilidad en equipos multidisciplinarios y bajo presión de tiempo.",
+      en: "1st Place. Designed an integral sustainability solution in multidisciplinary teams under time pressure.",
+    },
+    tech: ["Ideación", "Diseño de solución", "Trabajo en equipo"],
   },
   {
     id: "documind",
