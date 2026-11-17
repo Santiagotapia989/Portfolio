@@ -1,5 +1,4 @@
 import { Navbar } from "@/components/Navbar";
-import { SectionNav } from "@/components/SectionNav";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -23,8 +22,7 @@ export default function Home() {
       <SkipLink label={t.a11y.skipToContent} />
       <AnimatedBackground />
       <Navbar t={t} lang={lang} />
-      <SectionNav t={t} />
-      <main id="main-content">
+      <main id="main-content" className="mx-auto max-w-6xl px-4 sm:px-6">
         <Hero t={t} hasPhoto={hasPhoto} />
         <About t={t} />
         <Experience t={t} />

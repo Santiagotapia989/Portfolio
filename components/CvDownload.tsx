@@ -40,14 +40,14 @@ export function CvDownload({
         aria-label={ctaLabel}
         aria-expanded={open}
         aria-haspopup="menu"
-        className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold transition-colors hover:border-accent/60 hover:text-accent"
+        className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-foreground/40 hover:bg-surface-2/60"
       >
-        {ctaLabel}
-        <Download size={16} aria-hidden="true" />
+        <Download size={15} aria-hidden="true" className="text-muted" />
+        <span>{ctaLabel}</span>
         <ChevronDown
           size={14}
           aria-hidden="true"
-          className={`transition-transform ${open ? "rotate-180" : ""}`}
+          className={`text-muted transition-transform ${open ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -55,31 +55,31 @@ export function CvDownload({
         {open && (
           <m.div
             role="menu"
-            initial={{ opacity: 0, y: -6, scale: 0.97 }}
+            initial={{ opacity: 0, y: -4, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -6, scale: 0.97 }}
-            transition={{ duration: 0.15 }}
-            className="absolute left-1/2 top-full z-50 mt-2 w-56 -translate-x-1/2 overflow-hidden rounded-xl border border-border bg-surface shadow-card-hover md:left-auto md:right-0 md:translate-x-0"
+            exit={{ opacity: 0, y: -4, scale: 0.98 }}
+            transition={{ duration: 0.14 }}
+            className="absolute left-0 top-full z-50 mt-2 w-60 overflow-hidden rounded-lg border border-border bg-surface p-1 shadow-card-hover"
           >
             <a
               role="menuitem"
               href="/cv-es.pdf"
               download="Santiago Tapia Bazán - CV.pdf"
-              className="flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors hover:bg-surface-2 hover:text-accent"
+              className="flex items-center gap-2.5 rounded-md px-3 py-2.5 text-xs font-medium text-foreground transition-colors hover:bg-surface-2"
               onClick={() => setOpen(false)}
             >
-              <FileText size={16} className="shrink-0 text-accent" aria-hidden="true" />
-              {esLabel}
+              <FileText size={14} className="shrink-0 text-accent" aria-hidden="true" />
+              <span>{esLabel}</span>
             </a>
             <a
               role="menuitem"
               href="/cv-en.pdf"
               download="Santiago Tapia Bazán - Resume.pdf"
-              className="flex items-center gap-3 border-t border-border px-4 py-3 text-sm font-medium transition-colors hover:bg-surface-2 hover:text-accent"
+              className="flex items-center gap-2.5 rounded-md px-3 py-2.5 text-xs font-medium text-foreground transition-colors hover:bg-surface-2"
               onClick={() => setOpen(false)}
             >
-              <FileText size={16} className="shrink-0 text-accent" aria-hidden="true" />
-              {enLabel}
+              <FileText size={14} className="shrink-0 text-accent" aria-hidden="true" />
+              <span>{enLabel}</span>
             </a>
           </m.div>
         )}

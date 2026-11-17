@@ -1,49 +1,63 @@
-import { Briefcase } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import type { Dictionary } from "@/i18n/es";
 
 export function Experience({ t }: { t: Dictionary }) {
   return (
-    <section
-      id="experience"
-      className="relative flex min-h-[100svh] snap-start scroll-mt-16 flex-col justify-center px-4 py-24 sm:px-6"
-    >
-      <div className="mx-auto w-full max-w-5xl">
-        <SectionHeading>{t.experience.heading}</SectionHeading>
+    <section id="experience" className="scroll-mt-20 py-20 sm:py-24">
+      <SectionHeading index={t.experience.index}>
+        {t.experience.heading}
+      </SectionHeading>
 
-        <ol className="relative mt-12 space-y-10 border-l-2 border-border pl-8">
-          {t.experience.items.map((item, i) => (
-            <li key={item.org} className="relative">
-              <span
-                aria-hidden="true"
-                className="absolute -left-[2.65rem] flex h-9 w-9 items-center justify-center rounded-full border-2 border-accent bg-background text-accent"
-              >
-                <Briefcase size={15} />
-              </span>
-              <Reveal delay={0.1 * (i + 1)}>
-                <div className="rounded-2xl border border-border bg-surface p-6 shadow-card">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-display text-xl font-semibold">
-                      {item.org}
-                    </h3>
-                    <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
-                      {item.period}
-                    </span>
-                  </div>
-                  <p className="mt-2 font-medium text-foreground/90">
-                    {item.role}
-                  </p>
-                  <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted marker:text-accent">
-                    {item.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
+      <div className="mt-12 divide-y divide-border">
+        {t.experience.items.map((item, i) => (
+          <Reveal key={item.org} delay={0.08 * (i + 1)}>
+            <article className="grid gap-8 py-4 lg:grid-cols-12 lg:gap-12">
+              {/* Metadatos de período y organización */}
+              <div className="lg:col-span-4">
+                <p className="font-mono text-xs font-semibold uppercase tracking-wider text-accent">
+                  {item.period}
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-bold tracking-tight text-foreground">
+                  {item.org}
+                </h3>
+                <p className="mt-1 font-mono text-xs text-muted">
+                  {item.location}
+                </p>
+
+                <ul className="mt-4 flex flex-wrap gap-1.5">
+                  {item.stack.map((tech) => (
+                    <li
+                      key={tech}
+                      className="rounded border border-border bg-surface-2/70 px-2 py-0.5 font-mono text-[11px] text-muted"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Detalle de responsabilidades */}
+              <div className="rounded-xl border border-border bg-surface p-6 shadow-card lg:col-span-8 sm:p-8">
+                <h4 className="font-display text-lg font-semibold text-foreground">
+                  {item.role}
+                </h4>
+
+                <ul className="mt-5 space-y-3.5 text-sm leading-relaxed text-muted">
+                  {item.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                      />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

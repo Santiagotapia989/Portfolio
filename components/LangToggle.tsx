@@ -21,18 +21,22 @@ export function LangToggle({ lang, label }: { lang: Lang; label: string }) {
       onClick={switchLang}
       disabled={pending}
       aria-label={`ES EN — ${label}`}
-      className="flex h-9 items-center rounded-full border border-border bg-surface p-1 text-xs font-semibold transition-opacity disabled:opacity-60"
+      className="flex h-8 items-center rounded-md border border-border bg-surface p-0.5 font-mono text-[11px] font-medium transition-opacity disabled:opacity-60"
     >
       <span
-        className={`rounded-full px-2 py-1 transition-colors ${
-          lang === "es" ? "bg-accent text-accent-fg" : "text-muted"
+        className={`rounded-[4px] px-2 py-0.5 transition-colors ${
+          lang === "es"
+            ? "bg-foreground text-background"
+            : "text-muted hover:text-foreground"
         }`}
       >
         ES
       </span>
       <span
-        className={`rounded-full px-2 py-1 transition-colors ${
-          lang === "en" ? "bg-accent text-accent-fg" : "text-muted"
+        className={`rounded-[4px] px-2 py-0.5 transition-colors ${
+          lang === "en"
+            ? "bg-foreground text-background"
+            : "text-muted hover:text-foreground"
         }`}
       >
         EN

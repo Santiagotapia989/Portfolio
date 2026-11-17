@@ -24,19 +24,19 @@ export function ThemeToggle({
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? toLightLabel : toDarkLabel}
-      className="relative flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-colors hover:border-accent/60"
+      className="relative flex h-8 w-8 items-center justify-center rounded-md border border-border bg-surface text-foreground transition-colors hover:border-foreground/40"
     >
       <AnimatePresence mode="wait" initial={false}>
         {mounted && (
           <m.span
             key={isDark ? "moon" : "sun"}
-            initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
+            initial={{ rotate: -60, opacity: 0, scale: 0.7 }}
             animate={{ rotate: 0, opacity: 1, scale: 1 }}
-            exit={{ rotate: 90, opacity: 0, scale: 0.6 }}
-            transition={{ duration: 0.25 }}
+            exit={{ rotate: 60, opacity: 0, scale: 0.7 }}
+            transition={{ duration: 0.2 }}
             className="flex"
           >
-            {isDark ? <Moon size={17} /> : <Sun size={17} />}
+            {isDark ? <Moon size={15} /> : <Sun size={15} />}
           </m.span>
         )}
       </AnimatePresence>

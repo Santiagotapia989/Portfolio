@@ -23,10 +23,11 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       boxShadow: {
-        card: "0 8px 30px rgb(0 0 0 / 0.08)",
-        "card-hover": "0 16px 44px rgb(0 0 0 / 0.14)",
+        card: "0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -4px rgb(0 0 0 / 0.06)",
+        "card-hover": "0 4px 12px rgb(0 0 0 / 0.08), 0 20px 40px -8px rgb(0 0 0 / 0.12)",
       },
     },
   },

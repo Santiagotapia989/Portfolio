@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { getLang, getDict } from "@/i18n/getLang";
 
-const sans = Inter({
+const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "optional",
+  display: "swap",
 });
 
 const display = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
-  display: "optional",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export function generateMetadata(): Metadata {
@@ -50,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <body
-        className={`${sans.variable} ${display.variable} bg-background font-sans text-foreground antialiased`}
+        className={`${sans.variable} ${display.variable} ${mono.variable} bg-background font-sans text-foreground antialiased selection:bg-accent/20 selection:text-foreground`}
       >
         <Providers>{children}</Providers>
       </body>

@@ -1,4 +1,7 @@
-import { Mail, MessageCircle } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ArrowUpRight, Check, Copy, Mail, MessageCircle } from "lucide-react";
 import { GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -12,6 +15,8 @@ const LINKEDIN_URL =
   "https://www.linkedin.com/in/santiago-tapia-baz%C3%A1n-890344385";
 
 export function Contact({ t }: { t: Dictionary }) {
+  const [copied, setCopied] = useState(false);
+
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     t.contact.whatsappMessage,
   )}`;
@@ -19,101 +24,168 @@ export function Contact({ t }: { t: Dictionary }) {
     t.contact.emailSubject,
   )}`;
 
-  const channels = [
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2200);
+    } catch {
+      window.location.href = mailtoUrl;
+    }
+  };
+
+  const socials = [
     {
-      id: "whatsapp",
-      label: t.contact.whatsapp,
-      href: whatsappUrl,
-      icon: MessageCircle,
-      primary: true,
-      external: true,
-    },
-    {
-      id: "email",
-      label: t.contact.email,
-      href: mailtoUrl,
-      icon: Mail,
-      primary: false,
-      external: false,
+      id: "github",
+      label: t.contact.github,
+      handle: "@Santiagotapia989",
+      href: GITHUB_URL,
+      icon: GithubIcon,
     },
     {
       id: "linkedin",
       label: t.contact.linkedin,
+      handle: "/in/santiago-tapia-bazán",
       href: LINKEDIN_URL,
       icon: LinkedinIcon,
-      primary: false,
-      external: true,
-    },
-    {
-      id: "github",
-      label: t.contact.github,
-      href: GITHUB_URL,
-      icon: GithubIcon,
-      primary: false,
-      external: true,
     },
     {
       id: "instagram",
       label: t.contact.instagram,
+      handle: "@santiagotapiaa__",
       href: INSTAGRAM_URL,
       icon: InstagramIcon,
-      primary: false,
-      external: true,
-      wide: true,
     },
   ];
 
   return (
-    <section
-      id="contact"
-      className="relative flex min-h-[100svh] snap-start scroll-mt-16 flex-col justify-center px-4 pb-10 pt-24 sm:px-6"
-    >
-      <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center">
-        <SectionHeading>{t.contact.heading}</SectionHeading>
+    <section id="contact" className="scroll-mt-20 pb-12 pt-20 sm:pt-24">
+      <SectionHeading index={t.contact.index}>
+        {t.contact.heading}
+      </SectionHeading>
 
-        <Reveal delay={0.1}>
-          <p className="mt-8 max-w-2xl leading-relaxed text-muted">
-            {t.contact.intro}
-          </p>
-        </Reveal>
+      <div className="mt-12 grid gap-12 lg:grid-cols-12">
+        {/* Columna izquierda: canales de contacto directo */}
+        <div className="space-y-6 lg:col-span-7">
+          <Reveal delay={0.05}>
+            <p className="max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+              {t.contact.intro}
+            </p>
+          </Reveal>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {channels.map((ch, i) => (
-            <Reveal key={ch.id} delay={0.08 * (i + 1)} className="h-full">
+          <Reveal delay={0.1}>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+              {t.contact.directLabel}
+            </p>
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {/* Tarjeta WhatsApp */}
               <a
-                href={ch.href}
-                {...(ch.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                aria-label={`${ch.label}${
-                  ch.external ? ` (${t.a11y.externalLink})` : ""
-                }`}
-                className={`flex h-full items-center gap-4 rounded-2xl border p-5 transition-all hover:-translate-y-1 hover:shadow-card-hover ${
-                  ch.primary
-                    ? "border-accent bg-accent text-accent-fg shadow-card"
-                    : "border-border bg-surface hover:border-accent/60"
-                } ${"wide" in ch && ch.wide ? "sm:col-span-2" : ""}`}
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col justify-between rounded-xl border border-foreground bg-foreground p-5 text-background transition-colors hover:border-accent hover:bg-accent hover:text-accent-fg"
               >
-                <span
-                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${
-                    ch.primary
-                      ? "bg-accent-fg/15 text-accent-fg"
-                      : "bg-accent/10 text-accent"
-                  }`}
-                >
-                  <ch.icon size={20} />
-                </span>
-                <span className="font-semibold">{ch.label}</span>
+                <div className="flex items-center justify-between">
+                  <MessageCircle size={20} aria-hidden="true" />
+                  <ArrowUpRight
+                    size={17}
+                    aria-hidden="true"
+                    className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </div>
+                <div className="mt-6">
+                  <p className="font-display text-base font-bold">
+                    {t.contact.whatsapp}
+                  </p>
+                  <p className="mt-1 font-mono text-xs opacity-80">
+                    {t.contact.whatsappSub}
+                  </p>
+                </div>
               </a>
-            </Reveal>
-          ))}
+
+              {/* Tarjeta Email con acción de copiar */}
+              <div className="flex flex-col justify-between rounded-xl border border-border bg-surface p-5 shadow-card">
+                <div className="flex items-center justify-between">
+                  <Mail size={20} aria-hidden="true" className="text-accent" />
+                  <button
+                    type="button"
+                    onClick={copyEmail}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface-2 px-2.5 py-1 font-mono text-[11px] font-medium text-foreground transition-colors hover:border-foreground/40"
+                  >
+                    {copied ? (
+                      <>
+                        <Check size={12} className="text-emerald-500" />
+                        <span>{t.contact.copiedEmail}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={12} className="text-muted" />
+                        <span>{t.contact.copyEmail}</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                <div className="mt-6">
+                  <a
+                    href={mailtoUrl}
+                    className="group inline-flex items-center gap-1.5 font-display text-base font-bold text-foreground hover:text-accent"
+                  >
+                    <span>{t.contact.email}</span>
+                    <ArrowUpRight size={15} aria-hidden="true" />
+                  </a>
+                  <p className="mt-1 font-mono text-xs text-muted">{EMAIL}</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Columna derecha: directorio de redes y perfiles */}
+        <div className="lg:col-span-5">
+          <Reveal delay={0.15}>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+              {t.contact.socialsLabel}
+            </p>
+
+            <div className="mt-4 divide-y divide-border rounded-xl border border-border bg-surface px-5 shadow-card">
+              {socials.map((s) => (
+                <a
+                  key={s.id}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${s.label} (${t.a11y.externalLink})`}
+                  className="group flex items-center justify-between py-4 transition-colors"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface-2 text-foreground transition-colors group-hover:border-accent group-hover:text-accent">
+                      <s.icon size={17} />
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground group-hover:text-accent">
+                        {s.label}
+                      </p>
+                      <p className="font-mono text-xs text-muted">{s.handle}</p>
+                    </div>
+                  </div>
+                  <ArrowUpRight
+                    size={16}
+                    aria-hidden="true"
+                    className="text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
+                  />
+                </a>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </div>
 
-      <footer className="mx-auto mt-16 w-full max-w-5xl border-t border-border pt-6 text-center text-xs text-muted">
-        <p className="font-medium text-foreground/80">{t.contact.footerNote}</p>
-        <p className="mt-2">
-          © 2026 Santiago Tapia Bazán · {t.contact.footerMade}
+      <footer className="mt-20 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-xs text-muted sm:flex-row">
+        <p className="font-medium text-foreground/85">{t.contact.footerNote}</p>
+        <p className="font-mono text-[11px]">
+          © {new Date().getFullYear()} Santiago Tapia Bazán · {t.contact.footerMade}
         </p>
       </footer>
     </section>

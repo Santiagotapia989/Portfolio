@@ -6,6 +6,8 @@ export interface LocalizedString {
 export interface Project {
   id: string;
   title: string;
+  year?: string;
+  award?: boolean;
   badge?: LocalizedString;
   description: LocalizedString;
   tech: string[];
@@ -13,21 +15,19 @@ export interface Project {
   demoUrl?: string;
 }
 
-/**
- * Logros destacados — info tomada de los README de cada repo (clonados a /tmp
- * durante la generación) y de los datos provistos por el autor.
- */
 export const featuredProjects: Project[] = [
   {
     id: "siar",
     title: "SIAR — Sistema de Inspección de Archivos y Repositorios",
+    year: "2026",
+    award: true,
     badge: {
-      es: "🥇 1.º Puesto · Hackathon Nacional de Ciberdefensa CYBER.AR 2026",
-      en: "🥇 1st Place · CYBER.AR 2026 National Cyber Defense Hackathon",
+      es: "1.º Puesto · Hackathon Nacional CYBER.AR 2026",
+      en: "1st Place · CYBER.AR 2026 National Cyber Defense Hackathon",
     },
     description: {
-      es: "Herramienta de seguridad basada en IA que analiza en un entorno aislado repositorios y paquetes de terceros antes de que los consuman agentes de IA (Cursor, Claude Code, Copilot, MCP). Analizadores deterministas (Unicode oculto, prompt injection, typosquatting, secretos con gitleaks) combinados con triage semántico mediante un modelo local (Ollama). Arquitectura full-stack: TypeScript, Node/Express, React 18, Vite y Tailwind, con aprobación humana por token.",
-      en: "AI-based security tool that analyzes third-party repositories and packages in an isolated environment before they are consumed by AI agents (Cursor, Claude Code, Copilot, MCP). Deterministic analyzers (hidden Unicode, prompt injection, typosquatting, secrets via gitleaks) combined with semantic triage powered by a local model (Ollama). Full-stack architecture: TypeScript, Node/Express, React 18, Vite and Tailwind, with human token-based approval.",
+      es: "Herramienta de seguridad que audita en un entorno aislado repositorios y paquetes de terceros antes de ser consumidos por agentes de código (Cursor, Claude Code, Copilot, MCP). Combina analizadores deterministas (Unicode oculto, prompt injection, typosquatting, gitleaks) con triaje semántico local vía Ollama y aprobación humana por token.",
+      en: "Security platform that audits third-party repositories and packages inside an isolated environment before they are consumed by coding agents (Cursor, Claude Code, Copilot, MCP). Pairs deterministic analyzers (hidden Unicode, prompt injection, typosquatting, gitleaks) with local semantic triage via Ollama and token-based human approval.",
     },
     tech: [
       "TypeScript",
@@ -45,13 +45,14 @@ export const featuredProjects: Project[] = [
   {
     id: "centro-medico",
     title: "Centro Médico Digital",
+    year: "2025",
     badge: {
-      es: "Plataforma web",
-      en: "Web platform",
+      es: "Plataforma Full Stack",
+      en: "Full Stack Platform",
     },
     description: {
-      es: "Plataforma de gestión de turnos: reserva de turnos médicos online con autenticación, PostgreSQL (Prisma) y mails de confirmación. Next.js 14, React y TypeScript; desplegado en Vercel.",
-      en: "Appointment management platform: online medical appointment booking with authentication, PostgreSQL (Prisma) and confirmation emails. Next.js 14, React and TypeScript; deployed on Vercel.",
+      es: "Sistema integral de gestión hospitalaria y reserva de turnos online con autenticación de pacientes, persistencia relacional en PostgreSQL con Prisma y notificaciones transaccionales por correo.",
+      en: "End-to-end medical appointment booking and management system featuring patient authentication, PostgreSQL relational persistence with Prisma, and transactional email notifications.",
     },
     tech: [
       "Next.js 14",
@@ -68,13 +69,14 @@ export const featuredProjects: Project[] = [
   {
     id: "centerprints",
     title: "Center Print's S.R.L.",
+    year: "2025",
     badge: {
-      es: "Sitio corporativo + e-commerce",
-      en: "Corporate site + e-commerce",
+      es: "E-commerce & Catálogo B2B/B2C",
+      en: "E-commerce & B2B/B2C Catalog",
     },
     description: {
-      es: "Sitio web y catálogo e-commerce: catálogo dinámico y carrito de compras con checkout en Mercado Pago. Next.js 14, TypeScript y Tailwind CSS.",
-      en: "Website & e-commerce catalog: dynamic catalog and shopping cart with Mercado Pago checkout. Next.js 14, TypeScript and Tailwind CSS.",
+      es: "Tienda online y catálogo corporativo con filtrado dinámico, estado global de carrito persistente y pasarela de cobro integrada con Mercado Pago.",
+      en: "Corporate storefront and e-commerce catalog featuring dynamic filtering, persistent shopping cart state, and integrated Mercado Pago checkout.",
     },
     tech: [
       "Next.js",
@@ -88,43 +90,46 @@ export const featuredProjects: Project[] = [
     demoUrl: "https://centerprints-catalog.vercel.app/",
   },
   {
-    id: "hackathon-uca",
-    title: "Hackathon UCA — Competencia de Desarrollo Sostenible",
-    badge: {
-      es: "🥇 1.º Puesto · Hackathon UCA 2023",
-      en: "🥇 1st Place · UCA 2023 Hackathon",
-    },
-    description: {
-      es: "1.º Puesto. Diseño de una solución integral de sostenibilidad en equipos multidisciplinarios y bajo presión de tiempo.",
-      en: "1st Place. Designed an integral sustainability solution in multidisciplinary teams under time pressure.",
-    },
-    tech: ["Ideación", "Diseño de solución", "Trabajo en equipo"],
-  },
-  {
     id: "documind",
-    title: "DocuMind AI — Chatbot RAG",
+    title: "DocuMind AI — Asistente RAG",
+    year: "2025",
     badge: {
-      es: "Automatización con IA",
-      en: "AI automation",
+      es: "Arquitectura RAG & Serverless",
+      en: "RAG Architecture & Serverless",
     },
     description: {
-      es: "Chatbot conversacional con arquitectura RAG que responde sobre mi perfil, experiencia y proyectos. Buscador de relevancia propio sobre una base de conocimiento curada, función serverless en Netlify y generación con LLM (Groq o fallback gratuito).",
-      en: "Conversational chatbot with a RAG architecture that answers questions about my profile, experience and projects. Custom relevance-based retriever over a curated knowledge base, Netlify serverless function and LLM generation (Groq or a free fallback).",
+      es: "Asistente conversacional con recuperación aumentada (RAG) que responde consultas sobre trayectoria y proyectos técnicos. Motor de relevancia propio sobre base documental curada y ejecución serverless en Netlify con inferencia en Groq.",
+      en: "Retrieval-Augmented Generation (RAG) assistant that answers technical queries about my work and background. Custom relevance retriever over a curated knowledge base, running on Netlify Functions with Groq inference.",
     },
     tech: ["JavaScript", "RAG", "Netlify Functions", "Groq"],
     repoUrl: "https://github.com/Santiagotapia989/DocuMind-AI",
     demoUrl: "https://docmindaia.netlify.app/",
   },
+  {
+    id: "hackathon-uca",
+    title: "Hackathon UCA — Desarrollo Sostenible",
+    year: "2023",
+    award: true,
+    badge: {
+      es: "1.º Puesto · Hackathon UCA 2023",
+      en: "1st Place · UCA 2023 Hackathon",
+    },
+    description: {
+      es: "Diseño y validación de una propuesta tecnológica de impacto ambiental y sostenibilidad urbana desarrollada en equipo multidisciplinario bajo presión de tiempo.",
+      en: "Design and validation of an urban sustainability and environmental impact solution built within a multidisciplinary team under strict time constraints.",
+    },
+    tech: ["Arquitectura de solución", "Prototipado", "Liderazgo técnico"],
+  },
 ];
 
-/** Demos web en vivo (Netlify). */
 export const liveDemos: Project[] = [
   {
     id: "espacio-garcia",
     title: "Espacio García",
+    year: "2025",
     description: {
-      es: "Sitio web en vivo desplegado en Netlify.",
-      en: "Live website deployed on Netlify.",
+      es: "Sitio web comercial de alta velocidad con diseño a medida y optimización de carga.",
+      en: "High-speed commercial website with custom layout and performance optimization.",
     },
     tech: ["Preact", "Vite", "Netlify"],
     demoUrl: "https://espacio-garcia.netlify.app/",
@@ -132,9 +137,10 @@ export const liveDemos: Project[] = [
   {
     id: "libreria-el-garage",
     title: "Librería El Garage",
+    year: "2025",
     description: {
-      es: "Sitio web en vivo desplegado en Netlify.",
-      en: "Live website deployed on Netlify.",
+      es: "Presencia digital y catálogo navegable con rutas dinámicas para comercio local.",
+      en: "Digital storefront and navigable catalog with client-side routing for a local business.",
     },
     tech: ["React", "React Router", "Netlify"],
     demoUrl: "https://libreria-el-garage.netlify.app/",
@@ -142,9 +148,10 @@ export const liveDemos: Project[] = [
   {
     id: "casa-planes",
     title: "Casa Planes",
+    year: "2025",
     description: {
-      es: "Sitio web en vivo desplegado en Netlify.",
-      en: "Live website deployed on Netlify.",
+      es: "Landing page institucional ligera orientada a conversión y contacto directo.",
+      en: "Lightweight institutional landing page tailored for conversion and direct inquiries.",
     },
     tech: ["Preact", "Vite", "Netlify"],
     demoUrl: "https://casa-planes.netlify.app/",

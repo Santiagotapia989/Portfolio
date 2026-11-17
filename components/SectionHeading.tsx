@@ -1,15 +1,24 @@
 import { Reveal } from "@/components/Reveal";
 
-export function SectionHeading({ children }: { children: React.ReactNode }) {
+export function SectionHeading({
+  index,
+  children,
+}: {
+  index?: string;
+  children: React.ReactNode;
+}) {
   return (
     <Reveal>
-      <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-        {children}
-        <span
-          aria-hidden="true"
-          className="mt-3 block h-1 w-16 rounded-full bg-accent"
-        />
-      </h2>
+      <div className="border-b border-border pb-6">
+        {index && (
+          <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">
+            {index}
+          </p>
+        )}
+        <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          {children}
+        </h2>
+      </div>
     </Reveal>
   );
 }
